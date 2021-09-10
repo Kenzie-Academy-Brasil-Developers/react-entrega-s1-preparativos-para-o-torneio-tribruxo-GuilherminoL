@@ -1,4 +1,5 @@
 import { useState } from "react";
+import StudentCard from "../StudentsCard";
 const StudentsContainer = ({ students }) => {
   const [usedHouses, setUsedHouses] = useState([]);
 
@@ -10,7 +11,20 @@ const StudentsContainer = ({ students }) => {
     const randomIndex = Math.floor(Math.random() * maxIndex);
     const choosedStudent = students[randomIndex];
     setUsedHouses([...usedHouses, choosedStudent.house]);
+    return choosedStudent;
   };
-  return console.log();
+  return (
+    <ul>
+      <li>
+        <StudentCard student={getStudent()} />
+      </li>
+      <li>
+        <StudentCard student={getStudent()} />
+      </li>
+      <li>
+        <StudentCard student={getStudent()} />
+      </li>
+    </ul>
+  );
 };
 export default StudentsContainer;

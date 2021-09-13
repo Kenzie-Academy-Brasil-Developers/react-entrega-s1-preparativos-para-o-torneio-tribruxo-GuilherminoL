@@ -1,29 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StudentCard from "../StudentsCard";
 const StudentsContainer = ({ students }) => {
-  const [usedHouses, setUsedHouses] = useState([]);
+  const [qqr, setQqr] = useState(true);
+  const [choosedStudents, setChoosedStudents] = useState([]);
+  const getStudents = () => {
+    let sortedStudents = [];
+    let usedHouses = [];
+    let filteredStudents = [];
+    for (let i = 0; i < 3; i++) {
+      filteredStudents = students.filter((student) => {
+        return !usedHouses.includes(student.house);
+      });
 
-  const getStudent = (students) => {
-    const filteredStudents = students.filter((student) => {
-      return !usedHouses.includes(student.house);
-    });
-    const maxIndex = filteredStudents.length;
-    const randomIndex = Math.floor(Math.random() * maxIndex);
-    const choosedStudent = students[randomIndex];
-    setUsedHouses([...usedHouses, choosedStudent.house]);
-    return choosedStudent;
+      const maxIndex = filteredStudents.length;
+
+      const randomIndex = Math.floor(Math.random() * maxIndex);
+
+      const choosedPerson = filteredStudents[randomIndex];
+
+      sortedStudents.push(choosedPerson);
+      usedHouses.push(choosedPerson.house);
+    }
+
+    setChoosedStudents(sortedStudents);
   };
+  useEffect(() => {
+    getStudents();
+    console.log(choosedStudents);
+  }, []);
+
   return (
     <ul>
-      <li>
-        <StudentCard student={getStudent()} />
-      </li>
-      <li>
-        <StudentCard student={getStudent()} />
-      </li>
-      <li>
-        <StudentCard student={getStudent()} />
-      </li>
+      {choosedStudents.map((student, index) => {
+        return (
+          <li key={index}>
+            <StudentCard student={student} />
+          </li>
+        );
+      })}
+      <button onClick={() => getStudents()}>oi</button>
     </ul>
   );
 };

@@ -1,17 +1,19 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
+import StudentsContainer from "./components/StudentsContainer";
 
 function App() {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    fetch("http://hp-api.herokuapp.com/api/characters/students")
+    fetch("https://hp-api.herokuapp.com/api/characters/students")
       .then((response) => response.json())
       .then((response) => setStudents(response))
       .catch((error) => alert(error));
   }, []);
-  return <> </>;
+  return (
+    <>{students.length > 0 && <StudentsContainer students={students} />}</>
+  );
 }
 
 export default App;

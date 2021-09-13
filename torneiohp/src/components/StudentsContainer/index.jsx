@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import StudentCard from "../StudentsCard";
+import "./style.css";
 const StudentsContainer = ({ students }) => {
   const [qqr, setQqr] = useState(true);
   const [choosedStudents, setChoosedStudents] = useState([]);
@@ -30,16 +31,18 @@ const StudentsContainer = ({ students }) => {
   }, []);
 
   return (
-    <ul>
-      {choosedStudents.map((student, index) => {
-        return (
-          <li key={index}>
-            <StudentCard student={student} />
-          </li>
-        );
-      })}
+    <>
+      <ul className="studentsContainer">
+        {choosedStudents.map((student, index) => {
+          return (
+            <li key={index}>
+              <StudentCard student={student} />
+            </li>
+          );
+        })}
+      </ul>
       <button onClick={() => getStudents()}>oi</button>
-    </ul>
+    </>
   );
 };
 export default StudentsContainer;

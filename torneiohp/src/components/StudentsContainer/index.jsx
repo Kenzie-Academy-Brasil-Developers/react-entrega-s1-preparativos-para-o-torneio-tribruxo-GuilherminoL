@@ -34,14 +34,44 @@ const StudentsContainer = ({ students }) => {
     <>
       <ul className="studentsContainer">
         {choosedStudents.map((student, index) => {
-          return (
-            <li key={index}>
-              <StudentCard student={student} />
-            </li>
-          );
+          if (student.house === "Gryffindor") {
+            return (
+              <li className="student Gryffindor" key={index}>
+                <StudentCard student={student} />
+              </li>
+            );
+          }
+
+          if (student.house === "Slytherin") {
+            return (
+              <li className="student Slytherin" key={index}>
+                <StudentCard student={student} />
+              </li>
+            );
+          }
+
+          if (student.house === "Ravenclaw") {
+            return (
+              <li className="student Ravenclaw" key={index}>
+                <StudentCard student={student} />
+              </li>
+            );
+          }
+
+          if (student.house === "Hufflepuff") {
+            return (
+              <li className="student Hufflepuff" key={index}>
+                <StudentCard student={student} />
+              </li>
+            );
+          }
         })}
       </ul>
-      <button onClick={() => getStudents()}>oi</button>
+      <div className="btnContainer">
+        <button className="btn" onClick={() => getStudents()}>
+          Gerar novos estudantes
+        </button>
+      </div>
     </>
   );
 };

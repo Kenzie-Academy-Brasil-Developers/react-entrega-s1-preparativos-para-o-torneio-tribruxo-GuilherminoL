@@ -1,3 +1,49 @@
 .studentsContainer {
   display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+  padding: 20px 0;
+  margin: 0;
+}
+.student {
+  background-color: #eaf2ef;
+  padding: 10px 30px;
+}
+.btnContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-color: #eaf2ef;
+}
+.btn:hover {
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #eaf2ef;
+  color: #eaf2ef;
+}
+.Gryffindor {
+  border: 7px solid #740001;
+  color: #740001;
+  text-shadow: 1px 2px 2px black;
+}
+.Ravenclaw {
+  border: 7px solid #0e1a40;
+  color: #0e1a40;
+  text-shadow: 1px 2px 2px black;
+}
+.Slytherin {
+  border: 7px solid #1a472a;
+  color: #1a472a;
+  text-shadow: 1px 2px 2px black;
+}
+.Hufflepuff {
+  border: 7px solid #ecb939;
+  color: #ecb939;
+  text-shadow: 1px 2px 2px black;
 }

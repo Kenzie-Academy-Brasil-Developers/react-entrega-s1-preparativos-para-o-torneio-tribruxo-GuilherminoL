@@ -1,5 +1,6 @@
-.App {
-  text-align: center;
+.container {
+  background: url("https://i.pinimg.com/originals/a5/be/1e/a5be1eab17eced32f3cf4493aa2a88b1.jpg");
+  height: 100vh;
 }
 
 .App-logo {

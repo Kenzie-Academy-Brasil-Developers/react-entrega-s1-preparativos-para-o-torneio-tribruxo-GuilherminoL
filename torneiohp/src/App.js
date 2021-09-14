@@ -12,7 +12,9 @@ function App() {
       .catch((error) => alert(error));
   }, []);
   return (
-    <>{students.length > 0 && <StudentsContainer students={students} />}</>
+    <div class="container">
+      {students.length > 0 && <StudentsContainer students={students} />}
+    </div>
   );
 }
 

@@ -2,10 +2,35 @@
   text-align: center;
 }
 .studentImage {
+  margin: auto;
   width: 200px;
   height: 200px;
   border-radius: 50%;
 }
+.studentContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .studentHouse {
   text-align: center;
+}
+@media (max-width: 860px) {
+  .studentName {
+    font-size: 16px;
+    margin: 5px;
+  }
+  .studentImage {
+    width: 80px;
+    height: 80px;
+  }
+  .studentHouse {
+    margin: 5px;
+    text-align: right;
+  }
+  .studentContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
